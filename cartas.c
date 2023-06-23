@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "cartas.h"
 
 No* criarNo(card carta) {
@@ -32,7 +33,25 @@ void liberarLista(No* lista) {
     }
 }
 
-int preencheBaralho() {
+int compararCartas(const void* a, const void* b) {
+    const No* cartaA = (const No*)a;
+    const No* cartaB = (const No*)b;
+    
+    // Primeiro, comparar os naipes
+    int comparacaoNaipe = strcmp(cartaA->carta.naipe, cartaB->carta.naipe);
+    if (comparacaoNaipe != 0) {
+        return comparacaoNaipe;
+    }
+    
+    // Se os naipes são iguais, comparar os valores
+    return strcmp(cartaA->carta.valor, cartaB->carta.valor);
+}
+
+void ordenarBaralho(No* baralho, int tamanho) {
+    qsort(baralho, tamanho, sizeof(No), compararCartas);
+}
+
+/*int preencheBaralho() {
     No* lista = NULL;
     
     // Montando o baralho com todas as cartas
@@ -47,4 +66,4 @@ int preencheBaralho() {
             adicionarCarta(&lista, carta);
         }
     }
-}
+}*/
