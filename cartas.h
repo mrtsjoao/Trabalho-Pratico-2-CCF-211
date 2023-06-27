@@ -1,5 +1,5 @@
-#ifndef cartas.h
-#define cartas.h
+#ifndef cartas_h
+#define cartas_h
 
 typedef struct Cartas
 {

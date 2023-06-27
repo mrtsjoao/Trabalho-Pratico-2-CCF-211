@@ -5,6 +5,7 @@
 
 #include "cartas.h"
 
+
 int main() {
     int N, nCartas;
 
@@ -35,7 +36,7 @@ int main() {
     printf("Pilha de cartas embaralhadas:\n");
     No* atual = pilha;
     while (atual != NULL) {
-        printf("[%s %s]\n", atual->carta.naipe, atual->carta.valor);
+        printf("[%s %s]\n",atual->carta.valor, atual->carta.naipe);
         atual = atual->proximo;
     }
     
